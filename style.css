@@ -2,14 +2,19 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f3f4f6;
-  padding: 50px;
   margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  color: #333;
+  padding: 50px 20px;
+  min-height: calc(100vh - 70px); /* Adjust for navbar height */
 }
+
 
 h2 {
   margin-bottom: 20px;
