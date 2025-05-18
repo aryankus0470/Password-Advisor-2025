@@ -11,16 +11,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
-  min-height: calc(100vh - 70px); /* Adjust for navbar height */
-}
-
-
-h2 {
-  margin-bottom: 20px;
-  color: #1a73e8;
-  font-size: 2rem;
-  animation: fadeIn 1s ease-out;
+  padding: 100px 20px 50px; /* top padding accounts for fixed navbar */
+  min-height: calc(100vh - 70px);
 }
 
 .section {
@@ -34,15 +26,60 @@ h2 {
   animation: fadeIn 1.2s ease-out;
 }
 
-.password-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
+h1, h2 {
+  color: #1a73e8;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-out;
 }
 
-input[type="password"],
+.tagline {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (min-width: 600px) {
+  .button-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button {
+    width: auto;
+    min-width: 220px;
+  }
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+  background-color: #004494;
+}
+
 input[type="text"],
+input[type="password"],
 input[type="range"] {
   width: 100%;
   padding: 12px 15px;
@@ -58,6 +95,27 @@ input:focus {
   border-color: #1a73e8;
   transform: scale(1.02);
   box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.show-password {
+  background: none;
+  border: none;
+  color: #1a73e8;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.show-password:hover {
+  color: #0056b3;
+  transform: scale(1.1);
 }
 
 #strengthBar {
@@ -87,43 +145,7 @@ ul {
   font-size: 0.9rem;
 }
 
-button {
-  padding: 12px 25px;
-  font-size: 16px;
-  border: none;
-  background-color: #1a73e8;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  margin: 10px 0;
-  width: 100%;
-  transition: background-color 0.3s, transform 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-button:active {
-  transform: scale(0.98);
-  background-color: #004494;
-}
-
-.show-password {
-  background: none;
-  border: none;
-  color: #1a73e8;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.show-password:hover {
-  color: #0056b3;
-  transform: scale(1.1);
-}
-
+/* Range Slider */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -156,7 +178,7 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-/* Animation for fade-in effect */
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -168,96 +190,11 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  body {
-    padding: 20px;
-  }
-  .section {
-    width: 90%;
-  }
-  button {
-    width: 100%;
-  }
-}
-
-/* 🌙 Dark Mode (based on system preference) */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-    color: #e0e0e0;
-  }
-
-  .section {
-    background: #1e1e1e;
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
-  }
-
-  input,
-  button {
-    background: #2c2c2c;
-    color: #e0e0e0;
-    border-color: #444;
-  }
-
-  input:focus,
-  button:hover {
-    border-color: #90caf9;
-    background-color: #333;
-  }
-
-  .show-password {
-    color: #90caf9;
-  }
-
-  .show-password:hover {
-    color: #64b5f6;
-  }
-}
-h1 {
-  font-size: 2.5rem;
-  color: #1a73e8;
-  margin-bottom: 10px;
-  animation: fadeIn 1s ease-out;
-}
-
-.tagline {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 30px;
-  animation: fadeIn 1.2s ease-out;
-}
-
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-@media (min-width: 600px) {
-  .button-group {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  button {
-    width: auto;
-    min-width: 220px;
-  }
-}
-/* Fade-In Animation */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* Slide-Up Animation */
 .slide-up {
   opacity: 0;
   transform: translateY(30px);
@@ -271,18 +208,15 @@ h1 {
   }
 }
 
-/* Button Hover Glow */
-.btn-glow {
-  transition: box-shadow 0.3s ease;
-}
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #e0e0e0;
+  }
 
-.btn-glow:hover {
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
-}
-
-/* Smooth Scroll Behavior */
-html {
-  scroll-behavior: smooth;
-}
+  .section {
+    background: #1e1e1e;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.
 
 
