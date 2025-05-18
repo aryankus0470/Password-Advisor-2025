@@ -8,7 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand text-primary fw-bold" href="index.html">🔐 Password Advisor</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -17,31 +18,47 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="generator.html">Generator</a></li>
+          <li class="nav-item"><a class="nav-link active" href="generator.html">Generator</a></li>
           <li class="nav-item"><a class="nav-link" href="checker.html">Checker</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="section">
-    <h2>Password Generator</h2>
-    <label for="length">Length: <span id="lengthValue">12</span></label>
-    <input type="range" id="length" min="8" max="30" value="12" />
-    <label><input type="checkbox" id="includeSymbols" checked /> Include Symbols</label>
-    <label><input type="checkbox" id="includeUppercase" checked /> Include Uppercase</label>
-    <button id="generateBtn">Generate Password</button>
-    <button id="copyBtn">Copy to Clipboard</button>
-    <div class="password-container">
-      <input type="text" id="password" placeholder="Your generated password will appear here" />
-      <button class="show-password" id="showPasswordBtn">Show</button>
-    </div>
-    <div id="strengthBar"></div>
-    <p id="strengthText"></p>
-    <p id="strengthScore">Score: 0/100</p>
-    <ul id="tips"></ul>
-  </div>
+  <!-- Main Content -->
+  <main>
+    <div class="section">
+      <h2>Password Generator</h2>
 
+      <label for="length">Length: <span id="lengthValue">12</span></label>
+      <input type="range" id="length" min="8" max="30" value="12" />
+
+      <div class="form-check text-start mt-3">
+        <input class="form-check-input" type="checkbox" id="includeSymbols" checked />
+        <label class="form-check-label" for="includeSymbols">Include Symbols</label>
+      </div>
+
+      <div class="form-check text-start">
+        <input class="form-check-input" type="checkbox" id="includeUppercase" checked />
+        <label class="form-check-label" for="includeUppercase">Include Uppercase</label>
+      </div>
+
+      <button id="generateBtn" class="btn btn-primary mt-3">Generate Password</button>
+      <button id="copyBtn" class="btn btn-secondary mt-2">Copy to Clipboard</button>
+
+      <div class="password-container mt-4">
+        <input type="text" id="password" placeholder="Your generated password will appear here" />
+        <button class="show-password" id="showPasswordBtn">Show</button>
+      </div>
+
+      <div id="strengthBar" class="mt-3"></div>
+      <p id="strengthText"></p>
+      <p id="strengthScore">Score: 0/100</p>
+      <ul id="tips"></ul>
+    </div>
+  </main>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
