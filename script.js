@@ -37,7 +37,7 @@ function analyzePassword(password) {
     suggestions.push("Add numbers (0–9)");
   }
 
-  if (/[!@#$%^&*(),.?\":{}<>]/.test(password)) {
+  if (/[!@#$%^&*(),.?":{}<>]/.test(password)) {
     score += 20;
   } else {
     suggestions.push("Add special symbols (!@#...)");
@@ -142,3 +142,4 @@ if (showPasswordBtn) {
     showPasswordBtn.textContent = isPasswordVisible ? "Hide" : "Show";
   });
 }
+
